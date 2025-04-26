@@ -1,5 +1,5 @@
 import streamlit as st
-import mediapipe as mp
+# import mediapipe as mp
 from functions import *
 
 if "role" not in st.session_state:
