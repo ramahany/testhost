@@ -196,7 +196,7 @@ def run_check(img_path, pose_chosen):
     if img.shape[0] > 900:
         img = cv2.resize(img, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_AREA)
 
-    with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
+    with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5,  model_complexity=2) as pose:
         input_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = pose.process(input_img)
         if results.pose_landmarks:
@@ -211,6 +211,7 @@ def run_check(img_path, pose_chosen):
             out_put, score = input_img, 8
 
     return out_put, score, feed_back
+
 
 
 
